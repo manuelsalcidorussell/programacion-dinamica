@@ -4,3 +4,4 @@ int main() {
     std::cout << "Hola mundo";  // Muestra el mensaje
     return 0;  // Indica que el programa terminó correctamente
 }
+// ya corrio hola mundo
