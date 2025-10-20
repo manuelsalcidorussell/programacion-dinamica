@@ -39,3 +39,10 @@
 
 # debug information files
 *.dwo
+# Ignorar archivos y carpetas innecesarias
+.vscode/
+*.exe
+*.out
+*.obj
+*.o
+*.log
