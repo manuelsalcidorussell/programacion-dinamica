@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C++ Launch (g++/gdb)",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
+      "cwd": "${fileDirname}",
+      "console": "externalTerminal",
+      "MIMode": "gdb",
+      "miDebuggerPath": "C:/CWinLibs/mingw64/bin/gdb.exe",
+      "preLaunchTask": "C/C++: g++.exe build active file"
+    }
+  ]
+}
