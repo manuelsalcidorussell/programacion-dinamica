@@ -1,0 +1,26 @@
+#include <iostream>  // incluye iostream para imprimir y leer desde consola
+int main ()
+{
+int n;
+int suma;
+std::cout << "ingrese un numero entero positivo ";
+std::cin >> n;
+
+ if (n < 0)
+    {
+        cout << "El número debe ser positivo" << endl;
+        return 1; // Termina el programa si es negativo
+    }
+
+    // Bucle para sumar los primeros n números
+    for (int i = 1; i <= n; i++)
+    {
+        suma += i;
+    }
+
+    cout << "La sumatoria de los " << n << " primeros números naturales es: "
+         << suma << endl;
+
+    return 0;
+}
+}
