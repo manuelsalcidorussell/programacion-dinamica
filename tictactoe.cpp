@@ -9,32 +9,56 @@ char tablero[3][3] = {
     {'7', '8', '9'}
 };
 
-// Función para dibujar el tablero en consola (con nombres)
+// Función para dibujar el tablero en consola
 void dibujarTablero(const string& jugador1, const string& jugador2) {
     cout << "\n\t--- Juego del Gato ---\n\n";
     cout << jugador1 << " (X)  -  " << jugador2 << " (O)\n";
-    cout << "Gana quien complete 3 en linea (fila, columna o diagonal)\n\n";
+    cout << "Gana quien complete 3 en línea (fila, columna o diagonal)\n\n";
 
     cout << "     |     |     " << endl;
-    cout << "  " << tablero[0][0] << "  |  " << tablero[0][1] << "  |  " << tablero[0][2] << endl;
-    cout << "_____|_____|_____" << endl;
-    cout << "     |     |     " << endl;
-    cout << "  " << tablero[1][0] << "  |  " << tablero[1][1] << "  |  " << tablero[1][2] << endl;
-    cout << "_____|_____|_____" << endl;
-    cout << "     |     |     " << endl;
-    cout << "  " << tablero[2][0] << "  |  " << tablero[2][1] << "  |  " << tablero[2][2] << endl;
-    cout << "     |     |     " << endl << endl;
+    for (int i = 0; i < 3; i++) {
+        cout << "  " << tablero[i][0] << "  |  " << tablero[i][1] << "  |  " << tablero[i][2] << endl;
+        if (i < 2) cout << "_____|_____|_____" << endl << "     |     |     " << endl;
+    }
+    cout << endl;
+}
+
+// Función para realizar un turno
+void turnoJugador(char marca) {
+    int eleccion;
+    cout << "Elige una posición (1-9): ";
+    cin >> eleccion;
+
+    bool movimientoValido = false;
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            if (tablero[i][j] == '0' + eleccion) {
+                tablero[i][j] = marca;
+                movimientoValido = true;
+                break;
+            }
+        }
+    }
+
+    if (!movimientoValido)
+        cout << "Posición inválida o ya ocupada. Intenta otra.\n";
 }
 
 int main() {
     string jugador1, jugador2;
-
     cout << "Nombre del jugador 1 (X): ";
-    getline(cin >> ws, jugador1);  // ws consume espacios/saltos previos
-
+    getline(cin, jugador1);
     cout << "Nombre del jugador 2 (O): ";
-    getline(cin >> ws, jugador2);
+    getline(cin, jugador2);
 
-    dibujarTablero(jugador1, jugador2); // Muestra el tablero con nombres y regla
+    dibujarTablero(jugador1, jugador2);
+
+    // Primer turno de ejemplo
+    turnoJugador('X');
+    dibujarTablero(jugador1, jugador2);
+
+    turnoJugador('O');
+    dibujarTablero(jugador1, jugador2);
+
     return 0;
 }
